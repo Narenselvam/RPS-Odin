@@ -8,7 +8,7 @@ function getComputerChoice(){
 
 }
 computerSelection=getComputerChoice();
-playerSelection='paper';
+const playerSelection= prompt("Enter choice");
 
 function playRound(playerSelection,computerSelection){
     if((playerSelection==='rock'&& computerSelection==='paper')||(playerSelection==='scissor'&&computerSelection==='rock')
