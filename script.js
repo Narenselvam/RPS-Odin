@@ -8,6 +8,9 @@ function getComputerChoice() {
 }
 
 const no = 5;
+const ele = document.getElementById("startb");
+
+ele.addEventListener("click", game);
 
 function playRound(playerSelection, computerSelection) {
   if ((playerSelection === 'rock' && computerSelection === 'paper') ||
@@ -21,10 +24,11 @@ function playRound(playerSelection, computerSelection) {
   }
 }
 
-function game(no) {
+function game() {
   let win = 0;
   let lose = 0;
-  for (let i = 0; i < no; i++) {
+  document.getElementById("demo").innerHTML = "Hello World";
+  // for (let i = 0; i < no; i++) {
     const playerSelection = prompt("Enter choice");
     computerSelection = getComputerChoice();
     console.log(computerSelection);
@@ -35,16 +39,21 @@ function game(no) {
     } else {
       win += 1;
     }
-  }
+  // }
   if (win > lose) {
     console.log("YOU WON!!!");
+    document.getElementById("demo").innerHTML ="you won"+win;
     console.log("Your score", win);
+    document.getElementById("demo").innerHTML = win;
     console.log("computer  score",lose);
+   
   } else {
     console.log("YOU LOSE");
     console.log("Your score", win);
     console.log("Computer score",lose);
+    document.getElementById("demo").innerHTML ="you lose, pc score"+lose;
+
   }
 }
 
-game(no);
+
