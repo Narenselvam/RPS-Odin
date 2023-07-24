@@ -1,8 +1,7 @@
-const ele = document.getElementById("startb");
-
-ele.addEventListener("click", myFunction);
-var vada=10;
-
-function myFunction() {
-  document.getElementById("demo").innerHTML = "hello: "+vada;
-}
+const palyerchoice=document.querySelectorAll('.playerchoice');
+const output = document.getElementById('demo');
+palyerchoice.forEach(button =>{
+    button.addEventListener('click', ()=>{
+        const choice=button.value;
+        output.textContent = `Clicked: ${choice}`;    })
+})
