@@ -23,7 +23,8 @@ function playRound(playerSelection) {
       lose+=1;
       result='<br>you lose </br>'+'computer choice is-'+ computerSelection+' <br>pc score-</br>'+lose+'<br>your score is</br>'+win
       if(lose == 5){
-          result+= '<h2 style="text-align:center;">you LOST the game</h2>'
+          res= '<h2 style="text-align:center;">You LOST the game👾</h2>'
+          document.getElementById('result').innerHTML=res
           disableButtons()
       }
   } else if (playerSelection === computerSelection) {
@@ -32,7 +33,8 @@ function playRound(playerSelection) {
     win+=1;
       result='you win <br>computer choice is-</br>'+ computerSelection+'<br>your score=</br>'+win+'<br>Pc score is</br>'+lose
       if(win == 5){
-          result+= '<h2 style="text-align:center;">You WON the game</h2>'
+          res= '<h2 style="text-align:center;">You WON the game👾</h2>'
+          document.getElementById('result').innerHTML=res
           disableButtons()
       }
   }

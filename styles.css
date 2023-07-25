@@ -5,3 +5,43 @@ div{
     margin: 10px;
     border: 7px;
 }
+body{
+    background-color: grey;
+}
+.title,#result{
+    font-weight: 900;
+    font-family:'MinecraftiaRegular';
+    color: #FF5F1F;
+    
+}
+#result{
+    color:yellow;
+}
+#demo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 100px;
+}
+
+button{
+    size: 50px;
+    display: inline-block;
+    background-color: black;
+    color: aliceblue;
+    padding: 10px 24px;
+    font-size: 22px;
+    border-radius: 4px;
+
+}
+p{
+    color: lightblue;
+    font-weight: 600;
+    font-family: "Open Sans","PT Sans", Calibri, Tahoma, sans-serif;
+}
