@@ -1,7 +1,6 @@
-const ele = document.getElementById("startb");
-ele.addEventListener("click", game);
 const playerchoice=document.querySelectorAll("button");
-
+let win=0;
+let lose=0;
 
 function getComputerChoice() {
   const option = ['rock', 'paper', 'scissor'];
@@ -9,6 +8,11 @@ function getComputerChoice() {
   return computerSelection;
 }
 
+function disableButtons() {
+  playerchoice.forEach(elem => {
+      elem.disabled = true
+  })
+}
 
 function playRound(playerSelection) {
   computerSelection = getComputerChoice();
@@ -16,42 +20,31 @@ function playRound(playerSelection) {
   if ((playerSelection === 'rock' && computerSelection === 'paper') ||
     (playerSelection === 'scissor' && computerSelection === 'rock') ||
     (playerSelection === 'paper' && computerSelection === 'scissor')) {
-    return "You Lose";
+      lose+=1;
+      result='<br>you lose </br>'+'computer choice is-'+ computerSelection+' <br>pc score-</br>'+lose+'<br>your score is</br>'+win
+      if(lose == 5){
+          result+= '<h2 style="text-align:center;">you LOST the game</h2>'
+          disableButtons()
+      }
   } else if (playerSelection === computerSelection) {
-    return "It's a tie";
+    result="It is a tie"
   } else {
-    return 'You win!!';
+    win+=1;
+      result='you win <br>computer choice is-</br>'+ computerSelection+'<br>your score=</br>'+win+'<br>Pc score is</br>'+lose
+      if(win == 5){
+          result+= '<h2 style="text-align:center;">You WON the game</h2>'
+          disableButtons()
+      }
   }
+  document.getElementById('demo').innerHTML=result
+  return
 }
 
-function game() {
-  let win = 0;
-  let lose = 0;
+
     playerchoice.forEach(button => {
       button.addEventListener('click', () => {
-        const playerSelection = button.value;
-    let tempW = playRound(playerSelection);
-    if (tempW === "You Lose") {
-      lose += 1;
-    } if(tempW === "You win!!"){
-      win += 1;
-    }
-  
-  if (win > lose) {
-    console.log("YOU WON!!!");
-    document.getElementById("demo").innerHTML ="you won - score:"+win;
-    console.log("Your score", win);
-    console.log("computer  score",lose);
-   
-  } else {
-    console.log("YOU LOSE");
-    console.log("Your score", win);
-    console.log("Computer score",lose);
-    document.getElementById("demo").innerHTML ="you lose, pc score"+lose;
-
-  }
+        playRound(button.value);
 });
 });
-}
 
 
